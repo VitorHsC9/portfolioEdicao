@@ -51,9 +51,63 @@
     line-height: 1.9;
 }
 
+/* Formulário */
+.cta-form {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+    text-align: left;
+}
+
+.cta-form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-md);
+}
+
+.cta-form-group {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xs);
+}
+
+.cta-form-group label {
+    font-family: var(--font-title);
+    font-size: 0.75rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--color-silver);
+}
+
+.cta-form-group input,
+.cta-form-group textarea {
+    font-family: var(--font-body);
+    font-size: 1rem;
+    padding: var(--space-sm);
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(192, 199, 206, 0.2);
+    color: var(--color-text-light);
+    transition: all var(--transition-fast);
+    resize: vertical;
+}
+
+.cta-form-group input::placeholder,
+.cta-form-group textarea::placeholder {
+    color: var(--color-text-muted);
+    font-style: italic;
+}
+
+.cta-form-group input:focus,
+.cta-form-group textarea:focus {
+    outline: none;
+    border-color: var(--color-accent-blue);
+    background: rgba(255, 255, 255, 0.05);
+}
+
 .cta-button {
     display: inline-flex;
     align-items: center;
+    justify-content: center;
     gap: var(--space-sm);
     font-family: var(--font-title);
     font-size: 0.85rem;
@@ -68,6 +122,13 @@
     transition: all var(--transition-medium);
     position: relative;
     overflow: hidden;
+    margin-top: var(--space-sm);
+    align-self: center;
+}
+
+.cta-button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
 }
 
 .cta-button::before {
@@ -82,11 +143,11 @@
     z-index: -1;
 }
 
-.cta-button:hover {
+.cta-button:hover:not(:disabled) {
     color: var(--color-midnight);
 }
 
-.cta-button:hover::before {
+.cta-button:hover:not(:disabled)::before {
     width: 100%;
 }
 
@@ -95,8 +156,32 @@
     font-size: 1.2rem;
 }
 
-.cta-button:hover .cta-button-arrow {
+.cta-button:hover:not(:disabled) .cta-button-arrow {
     transform: translateX(5px);
+}
+
+/* Mensagem de sucesso */
+.cta-success {
+    text-align: center;
+    padding: var(--space-lg);
+}
+
+.cta-success-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: rgba(93, 138, 168, 0.2);
+    color: var(--color-accent-blue);
+    font-size: 1.5rem;
+    margin-bottom: var(--space-md);
+}
+
+.cta-success p {
+    color: var(--color-silver);
+    font-style: italic;
 }
 
 /* Ornamentos */
@@ -134,6 +219,10 @@
     .cta-content {
         padding: var(--space-lg) var(--space-md);
         margin: 0 var(--space-sm);
+    }
+
+    .cta-form-row {
+        grid-template-columns: 1fr;
     }
 
     .cta::after {

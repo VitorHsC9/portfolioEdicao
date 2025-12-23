@@ -39,7 +39,7 @@ const Header = () => {
     >
       <div className="header-content">
         <a href="#" className="header-logo" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
-          Atelier
+          Kevin Álex
         </a>
 
         <nav className={`header-nav ${isMenuOpen ? 'open' : ''}`}>

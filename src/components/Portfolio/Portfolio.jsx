@@ -10,45 +10,51 @@ const Portfolio = () => {
     const works = [
         {
             id: 1,
-            title: 'O Silêncio das Sombras',
-            category: 'Curta-metragem',
-            description: 'Uma meditação visual sobre luz e escuridão',
-            image: 'https://images.unsplash.com/photo-1518676590629-3dcbd9c5a5c9?w=600&h=750&fit=crop',
+            title: 'Obra I',
+            category: 'Edição de Vídeo',
+            description: 'Uma composição visual única',
+            image: '/assets/portfolio/1.jpg',
+            videoUrl: 'https://www.instagram.com/reel/DRdKFVXgEQE/',
         },
         {
             id: 2,
-            title: 'Vestígios do Sagrado',
-            category: 'Documentário',
-            description: 'Explorando a arte sacra contemporânea',
-            image: 'https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=600&h=750&fit=crop',
+            title: 'Obra II',
+            category: 'Edição de Vídeo',
+            description: 'Arte em movimento',
+            image: '/assets/portfolio/2.jpg',
+            videoUrl: 'https://www.instagram.com/reel/DPRU_yBAIkm/',
         },
         {
             id: 3,
-            title: 'Natureza Morta',
-            category: 'Vídeo Arte',
-            description: 'Composições inspiradas em mestres flamengos',
-            image: 'https://images.unsplash.com/photo-1579783902614-a3fb3927b6a5?w=600&h=750&fit=crop',
+            title: 'Obra III',
+            category: 'Edição de Vídeo',
+            description: 'Narrativa visual contemplativa',
+            image: '/assets/portfolio/3.jpg',
+            videoUrl: 'https://www.instagram.com/reel/DSNm9FmAJE7/',
         },
         {
             id: 4,
-            title: 'A Última Luz',
-            category: 'Comercial',
-            description: 'Campanha para marca de luxo artesanal',
-            image: 'https://images.unsplash.com/photo-1549490349-8643362247b5?w=600&h=750&fit=crop',
+            title: 'Obra IV',
+            category: 'Edição de Vídeo',
+            description: 'Luz e sombra em harmonia',
+            image: '/assets/portfolio/4.jpg',
+            videoUrl: 'https://www.instagram.com/reel/DQ_wBjdAK0d/',
         },
         {
             id: 5,
-            title: 'Memórias do Tempo',
-            category: 'Experimental',
-            description: 'Fragmentos visuais da passagem temporal',
-            image: 'https://images.unsplash.com/photo-1541367777708-7905fe3296c0?w=600&h=750&fit=crop',
+            title: 'Obra V',
+            category: 'Edição de Vídeo',
+            description: 'Composição cinematográfica',
+            image: '/assets/portfolio/5.jpg',
+            videoUrl: 'https://www.instagram.com/reel/DRk3LuwiP_k/',
         },
         {
             id: 6,
-            title: 'O Retrato Interior',
-            category: 'Perfil',
-            description: 'Documentário intimista sobre artistas',
-            image: 'https://images.unsplash.com/photo-1460661419201-fd4cecdf8a8b?w=600&h=750&fit=crop',
+            title: 'Obra VI',
+            category: 'Edição de Vídeo',
+            description: 'Expressão artística digital',
+            image: '/assets/portfolio/6.jpg',
+            videoUrl: 'https://www.instagram.com/reel/DPWNtHBgILy/',
         },
     ];
 
@@ -81,6 +87,10 @@ const Portfolio = () => {
         },
     };
 
+    const handleWorkClick = (videoUrl) => {
+        window.open(videoUrl, '_blank', 'noopener,noreferrer');
+    };
+
     return (
         <section className="portfolio section" id="obras" ref={ref}>
             <div className="container">
@@ -93,7 +103,7 @@ const Portfolio = () => {
                     <span className="portfolio-eyebrow">Portfólio</span>
                     <h2 className="portfolio-title">Obras Selecionadas</h2>
                     <p className="portfolio-subtitle">
-                        Uma curadoria de trabalhos que honram a tradição visual
+                        Clique para assistir cada obra
                     </p>
                 </motion.div>
 
@@ -109,6 +119,7 @@ const Portfolio = () => {
                             className="portfolio-card"
                             variants={cardVariants}
                             whileHover={{ y: -5 }}
+                            onClick={() => handleWorkClick(work.videoUrl)}
                         >
                             <img
                                 src={work.image}
@@ -121,6 +132,7 @@ const Portfolio = () => {
                                     <span className="portfolio-card-category">{work.category}</span>
                                     <h3 className="portfolio-card-title">{work.title}</h3>
                                     <p className="portfolio-card-description">{work.description}</p>
+                                    <span className="portfolio-card-play">▶ Assistir</span>
                                 </div>
                             </div>
                             <span className="portfolio-card-ornament">✦</span>

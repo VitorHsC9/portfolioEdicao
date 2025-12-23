@@ -41,9 +41,7 @@ const Testimonial = () => {
                     </motion.span>
 
                     <motion.blockquote className="testimonial-quote" variants={itemVariants}>
-                        A arte não reproduz o visível; ela torna visível aquilo que nem sempre
-                        se pode ver. Assim como a música é o silêncio entre as notas, o cinema
-                        verdadeiro vive no espaço entre os cortes.
+                        A beleza salvará o mundo.
                     </motion.blockquote>
 
                     <motion.div className="testimonial-ornament" variants={itemVariants}>
@@ -53,8 +51,7 @@ const Testimonial = () => {
                     </motion.div>
 
                     <motion.div className="testimonial-author" variants={itemVariants}>
-                        <span className="testimonial-author-name">Paul Klee</span>
-                        <span className="testimonial-author-title">Adaptação livre</span>
+                        <span className="testimonial-author-name">Fiodor Dostoevsky</span>
                     </motion.div>
 
                     <motion.span className="testimonial-quote-mark close" variants={itemVariants}>

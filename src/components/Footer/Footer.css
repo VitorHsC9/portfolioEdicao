@@ -75,8 +75,7 @@
     justify-content: center;
     border: 1px solid rgba(192, 199, 206, 0.2);
     color: var(--color-text-muted);
-    font-family: var(--font-title);
-    font-size: 0.85rem;
+    font-size: 1.2rem;
     transition: all var(--transition-fast);
 }
 
@@ -84,6 +83,7 @@
     border-color: var(--color-silver);
     color: var(--color-silver);
     background: rgba(192, 199, 206, 0.05);
+    transform: translateY(-2px);
 }
 
 .footer-ornament {

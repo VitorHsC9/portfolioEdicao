@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import { FaInstagram, FaYoutube, FaTiktok } from 'react-icons/fa';
 import './Footer.css';
 
 const Footer = () => {
@@ -19,9 +20,9 @@ const Footer = () => {
     ];
 
     const socialLinks = [
-        { label: 'Vm', href: 'https://vimeo.com' },
-        { label: 'Be', href: 'https://behance.net' },
-        { label: 'In', href: 'https://instagram.com' },
+        { icon: FaInstagram, href: 'https://www.instagram.com/artecomkevin/', label: 'Instagram' },
+        { icon: FaYoutube, href: 'https://www.youtube.com/@artecomkevin', label: 'YouTube' },
+        { icon: FaTiktok, href: 'https://www.tiktok.com/@artecomkevin', label: 'TikTok' },
     ];
 
     return (
@@ -42,7 +43,7 @@ const Footer = () => {
                             window.scrollTo({ top: 0, behavior: 'smooth' });
                         }}
                     >
-                        Atelier
+                        Kevin Álex
                     </a>
 
                     <nav className="footer-nav">
@@ -71,7 +72,7 @@ const Footer = () => {
                                 rel="noopener noreferrer"
                                 aria-label={social.label}
                             >
-                                {social.label}
+                                <social.icon />
                             </a>
                         ))}
                     </div>

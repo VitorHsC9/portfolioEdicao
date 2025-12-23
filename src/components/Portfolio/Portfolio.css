@@ -184,6 +184,24 @@
     transform: translateY(0);
 }
 
+.portfolio-card-play {
+    display: inline-block;
+    margin-top: var(--space-sm);
+    font-family: var(--font-title);
+    font-size: 0.75rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--color-accent-blue);
+    opacity: 0;
+    transform: translateY(10px);
+    transition: all var(--transition-medium);
+}
+
+.portfolio-card:hover .portfolio-card-play {
+    opacity: 1;
+    transform: translateY(0);
+}
+
 /* Ornamento do card */
 .portfolio-card-ornament {
     position: absolute;
