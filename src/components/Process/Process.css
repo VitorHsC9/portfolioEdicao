@@ -1,0 +1,183 @@
+.process {
+    position: relative;
+    overflow: hidden;
+    background:
+        linear-gradient(to bottom,
+            rgba(10, 15, 24, 0.9) 0%,
+            rgba(10, 15, 24, 0.85) 50%,
+            rgba(10, 15, 24, 0.9) 100%),
+        url('https://upload.wikimedia.org/wikipedia/commons/thumb/8/8c/David_-_The_Death_of_Socrates.jpg/1280px-David_-_The_Death_of_Socrates.jpg') center/cover no-repeat;
+    background-attachment: fixed;
+}
+
+.process-header {
+    text-align: center;
+    margin-bottom: var(--space-xl);
+    position: relative;
+    z-index: 1;
+}
+
+.process-eyebrow {
+    font-family: var(--font-title);
+    font-size: 0.8rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--color-accent-blue);
+    margin-bottom: var(--space-sm);
+    display: block;
+}
+
+.process-title {
+    font-family: var(--font-title);
+    font-size: clamp(1.8rem, 4vw, 2.8rem);
+    color: var(--color-white);
+    margin-bottom: var(--space-sm);
+}
+
+.process-subtitle {
+    font-family: var(--font-body);
+    font-size: 1.1rem;
+    font-style: italic;
+    color: var(--color-text-muted);
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* Timeline */
+.process-timeline {
+    position: relative;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+/* Linha central */
+.process-timeline::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 1px;
+    height: 100%;
+    background: linear-gradient(180deg,
+            transparent,
+            var(--color-steel) 10%,
+            var(--color-steel) 90%,
+            transparent);
+    opacity: 0.4;
+}
+
+/* Item da timeline */
+.process-item {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--space-lg);
+    margin-bottom: var(--space-xl);
+    position: relative;
+}
+
+.process-item:last-child {
+    margin-bottom: 0;
+}
+
+/* Alterna lados */
+.process-item:nth-child(odd) {
+    flex-direction: row;
+}
+
+.process-item:nth-child(even) {
+    flex-direction: row-reverse;
+}
+
+/* Número com estilo de numeral romano */
+.process-item-number {
+    flex-shrink: 0;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-title);
+    font-size: 1.3rem;
+    font-weight: 500;
+    color: var(--color-silver);
+    border: 1px solid var(--color-steel);
+    background: var(--color-midnight);
+    position: relative;
+    z-index: 2;
+    transition: all var(--transition-medium);
+}
+
+.process-item:hover .process-item-number {
+    background: var(--color-steel);
+    color: var(--color-white);
+    border-color: var(--color-silver);
+}
+
+/* Conteúdo */
+.process-item-content {
+    flex: 1;
+    max-width: 350px;
+    padding: var(--space-md);
+    background: rgba(10, 15, 24, 0.85);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(192, 199, 206, 0.1);
+    transition: all var(--transition-medium);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+.process-item-content:hover {
+    border-color: rgba(192, 199, 206, 0.25);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+}
+
+.process-item:nth-child(odd) .process-item-content {
+    text-align: right;
+}
+
+.process-item:nth-child(even) .process-item-content {
+    text-align: left;
+}
+
+.process-item-title {
+    font-family: var(--font-title);
+    font-size: 1.1rem;
+    letter-spacing: 0.08em;
+    color: var(--color-white);
+    margin-bottom: var(--space-sm);
+}
+
+.process-item-description {
+    font-family: var(--font-body);
+    font-size: 1rem;
+    color: var(--color-text-muted);
+    line-height: 1.8;
+    font-style: italic;
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+    .process-timeline::before {
+        left: 30px;
+    }
+
+    .process-item,
+    .process-item:nth-child(odd),
+    .process-item:nth-child(even) {
+        flex-direction: row;
+        gap: var(--space-md);
+    }
+
+    .process-item-number {
+        width: 50px;
+        height: 50px;
+        font-size: 1.1rem;
+    }
+
+    .process-item-content,
+    .process-item:nth-child(odd) .process-item-content,
+    .process-item:nth-child(even) .process-item-content {
+        text-align: left;
+        max-width: 100%;
+    }
+}

@@ -1,0 +1,184 @@
+.hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    background:
+        linear-gradient(to bottom,
+            rgba(10, 15, 24, 0.75) 0%,
+            rgba(10, 15, 24, 0.65) 30%,
+            rgba(10, 15, 24, 0.70) 70%,
+            rgba(10, 15, 24, 0.85) 100%),
+        url('https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Mona_Lisa%2C_by_Leonardo_da_Vinci%2C_from_C2RMF_retouched.jpg/800px-Mona_Lisa%2C_by_Leonardo_da_Vinci%2C_from_C2RMF_retouched.jpg') center/cover no-repeat;
+    background-attachment: fixed;
+}
+
+/* Moldura decorativa estilo galeria */
+.hero::after {
+    content: '';
+    position: absolute;
+    top: var(--space-lg);
+    left: var(--space-lg);
+    right: var(--space-lg);
+    bottom: var(--space-lg);
+    border: 1px solid var(--color-silver-dark);
+    opacity: 0.25;
+    pointer-events: none;
+}
+
+/* Cantos decorativos */
+.hero::before {
+    content: '';
+    position: absolute;
+    top: calc(var(--space-lg) - 10px);
+    left: calc(var(--space-lg) - 10px);
+    width: 30px;
+    height: 30px;
+    border-top: 2px solid var(--color-silver);
+    border-left: 2px solid var(--color-silver);
+    opacity: 0.4;
+    pointer-events: none;
+}
+
+.hero-content {
+    text-align: center;
+    z-index: 1;
+    padding: var(--space-lg);
+    max-width: 900px;
+    background: rgba(10, 15, 24, 0.7);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(192, 199, 206, 0.15);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+.hero-title {
+    font-family: var(--font-title);
+    font-size: clamp(2.5rem, 7vw, 4.5rem);
+    font-weight: 500;
+    letter-spacing: 0.02em;
+    color: var(--color-white);
+    margin-bottom: var(--space-md);
+    line-height: 1.2;
+}
+
+.hero-title-highlight {
+    color: var(--color-accent-blue);
+    display: block;
+    font-style: italic;
+    font-family: var(--font-body);
+    font-size: 0.45em;
+    font-weight: 400;
+    letter-spacing: 0.05em;
+    margin-top: var(--space-sm);
+}
+
+.hero-subtitle {
+    font-family: var(--font-body);
+    font-size: clamp(1.1rem, 2vw, 1.4rem);
+    font-weight: 400;
+    font-style: italic;
+    color: var(--color-text-muted);
+    max-width: 600px;
+    margin: 0 auto var(--space-lg);
+    line-height: 1.9;
+}
+
+.hero-ornament {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-md);
+    margin-bottom: var(--space-lg);
+}
+
+.hero-ornament-line {
+    width: 100px;
+    height: 1px;
+    background: linear-gradient(90deg,
+            transparent,
+            var(--color-silver-dark));
+}
+
+.hero-ornament-line:last-child {
+    background: linear-gradient(90deg,
+            var(--color-silver-dark),
+            transparent);
+}
+
+.hero-ornament-symbol {
+    color: var(--color-silver);
+    font-size: 1.5rem;
+    opacity: 0.6;
+}
+
+.hero-cta {
+    margin-top: var(--space-lg);
+}
+
+/* Indicador de scroll */
+.hero-scroll {
+    position: absolute;
+    bottom: var(--space-lg);
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-sm);
+    color: var(--color-text-muted);
+    font-family: var(--font-title);
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+}
+
+.hero-scroll-line {
+    width: 1px;
+    height: 60px;
+    background: linear-gradient(180deg,
+            var(--color-silver-dark),
+            transparent);
+    animation: scrollPulse 2s ease-in-out infinite;
+}
+
+@keyframes scrollPulse {
+
+    0%,
+    100% {
+        opacity: 0.4;
+        transform: scaleY(1);
+    }
+
+    50% {
+        opacity: 1;
+        transform: scaleY(1.1);
+    }
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .hero::after {
+        top: var(--space-sm);
+        left: var(--space-sm);
+        right: var(--space-sm);
+        bottom: var(--space-sm);
+    }
+
+    .hero::before {
+        top: calc(var(--space-sm) - 5px);
+        left: calc(var(--space-sm) - 5px);
+        width: 20px;
+        height: 20px;
+    }
+
+    .hero-content {
+        padding: var(--space-md);
+        margin: var(--space-md);
+    }
+
+    .hero-scroll {
+        bottom: var(--space-md);
+    }
+}

@@ -1,0 +1,144 @@
+.testimonial {
+    position: relative;
+    overflow: hidden;
+    background:
+        linear-gradient(to bottom,
+            rgba(10, 15, 24, 0.88) 0%,
+            rgba(10, 15, 24, 0.82) 50%,
+            rgba(10, 15, 24, 0.88) 100%),
+        url('https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/%22The_School_of_Athens%22_by_Raffaello_Sanzio_da_Urbino.jpg/1280px-%22The_School_of_Athens%22_by_Raffaello_Sanzio_da_Urbino.jpg') center/cover no-repeat;
+    background-attachment: fixed;
+}
+
+.testimonial-content {
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+    background: rgba(10, 15, 24, 0.8);
+    backdrop-filter: blur(12px);
+    padding: var(--space-xl);
+    border: 1px solid rgba(192, 199, 206, 0.12);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+}
+
+/* Aspas decorativas */
+.testimonial-quote-mark {
+    font-family: Georgia, serif;
+    font-size: 10rem;
+    color: var(--color-steel);
+    opacity: 0.2;
+    line-height: 1;
+    position: absolute;
+    pointer-events: none;
+}
+
+.testimonial-quote-mark.open {
+    top: -20px;
+    left: 20px;
+}
+
+.testimonial-quote-mark.close {
+    bottom: -80px;
+    right: 20px;
+}
+
+.testimonial-quote {
+    font-family: var(--font-body);
+    font-size: clamp(1.3rem, 2.5vw, 1.8rem);
+    font-weight: 400;
+    font-style: italic;
+    color: var(--color-ice);
+    line-height: 1.9;
+    margin-bottom: var(--space-lg);
+    position: relative;
+    z-index: 1;
+}
+
+.testimonial-ornament {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-md);
+    margin-bottom: var(--space-md);
+}
+
+.testimonial-ornament-line {
+    width: 60px;
+    height: 1px;
+    background: linear-gradient(90deg,
+            transparent,
+            var(--color-silver-dark),
+            transparent);
+}
+
+.testimonial-ornament-symbol {
+    color: var(--color-silver);
+    font-size: 1rem;
+}
+
+.testimonial-author {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-xs);
+}
+
+.testimonial-author-name {
+    font-family: var(--font-title);
+    font-size: 0.95rem;
+    letter-spacing: 0.15em;
+    color: var(--color-silver);
+    text-transform: uppercase;
+}
+
+.testimonial-author-title {
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    font-style: italic;
+    color: var(--color-text-muted);
+}
+
+/* Ornamentos laterais */
+.testimonial-side-ornament {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 2rem;
+    color: var(--color-steel);
+    opacity: 0.15;
+}
+
+.testimonial-side-ornament.left {
+    left: -60px;
+}
+
+.testimonial-side-ornament.right {
+    right: -60px;
+}
+
+@media (max-width: 768px) {
+    .testimonial-content {
+        padding: var(--space-lg) var(--space-md);
+        margin: 0 var(--space-sm);
+    }
+
+    .testimonial-quote-mark {
+        font-size: 6rem;
+    }
+
+    .testimonial-quote-mark.open {
+        top: -10px;
+        left: 10px;
+    }
+
+    .testimonial-quote-mark.close {
+        bottom: -50px;
+        right: 10px;
+    }
+
+    .testimonial-side-ornament {
+        display: none;
+    }
+}

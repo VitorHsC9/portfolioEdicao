@@ -1,0 +1,139 @@
+.manifesto {
+    position: relative;
+    overflow: hidden;
+    background:
+        linear-gradient(to bottom,
+            rgba(10, 15, 24, 0.88) 0%,
+            rgba(10, 15, 24, 0.82) 50%,
+            rgba(10, 15, 24, 0.88) 100%),
+        url('https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/Sandro_Botticelli_-_La_nascita_di_Venere_-_Google_Art_Project_-_edited.jpg/1280px-Sandro_Botticelli_-_La_nascita_di_Venere_-_Google_Art_Project_-_edited.jpg') center/cover no-repeat;
+    background-attachment: fixed;
+}
+
+.manifesto-content {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+    background: rgba(10, 15, 24, 0.8);
+    backdrop-filter: blur(12px);
+    padding: var(--space-xl);
+    border: 1px solid rgba(192, 199, 206, 0.12);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+}
+
+.manifesto-eyebrow {
+    font-family: var(--font-title);
+    font-size: 0.8rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--color-accent-blue);
+    margin-bottom: var(--space-md);
+    display: block;
+}
+
+.manifesto-title {
+    font-family: var(--font-body);
+    font-size: clamp(1.5rem, 3vw, 2.2rem);
+    font-weight: 400;
+    font-style: italic;
+    color: var(--color-ice);
+    line-height: 1.8;
+    margin-bottom: var(--space-lg);
+    position: relative;
+}
+
+.manifesto-title::before {
+    content: '"';
+    position: absolute;
+    top: -30px;
+    left: -20px;
+    font-size: 5rem;
+    color: var(--color-steel);
+    font-family: Georgia, serif;
+    line-height: 1;
+    opacity: 0.4;
+}
+
+.manifesto-text {
+    font-family: var(--font-body);
+    font-size: clamp(1rem, 1.5vw, 1.2rem);
+    color: var(--color-text-muted);
+    line-height: 2;
+    margin-bottom: var(--space-md);
+}
+
+.manifesto-text:last-of-type {
+    margin-bottom: 0;
+}
+
+.manifesto-signature {
+    margin-top: var(--space-xl);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-sm);
+}
+
+.manifesto-signature-line {
+    width: 80px;
+    height: 1px;
+    background: linear-gradient(90deg,
+            transparent,
+            var(--color-silver-dark),
+            transparent);
+    margin-bottom: var(--space-sm);
+}
+
+.manifesto-signature-name {
+    font-family: var(--font-title);
+    font-size: 1rem;
+    letter-spacing: 0.15em;
+    color: var(--color-silver);
+}
+
+.manifesto-signature-role {
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    font-style: italic;
+    color: var(--color-text-muted);
+}
+
+/* Ornamento lateral */
+.manifesto::before,
+.manifesto::after {
+    content: '❧';
+    position: absolute;
+    font-size: 2.5rem;
+    color: var(--color-silver-dark);
+    opacity: 0.15;
+    z-index: 2;
+}
+
+.manifesto::before {
+    top: var(--space-xl);
+    left: var(--space-lg);
+}
+
+.manifesto::after {
+    bottom: var(--space-xl);
+    right: var(--space-lg);
+    transform: rotate(180deg);
+}
+
+@media (max-width: 768px) {
+    .manifesto-content {
+        padding: var(--space-lg) var(--space-md);
+        margin: 0 var(--space-sm);
+    }
+
+    .manifesto-title::before {
+        display: none;
+    }
+
+    .manifesto::before,
+    .manifesto::after {
+        display: none;
+    }
+}
