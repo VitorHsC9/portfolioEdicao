@@ -52,7 +52,7 @@
     gap: var(--space-lg);
     position: relative;
     z-index: 1;
-    overflow: hidden;
+    padding-bottom: var(--space-md);
 }
 
 /* Card com moldura prateada estilo museu */
