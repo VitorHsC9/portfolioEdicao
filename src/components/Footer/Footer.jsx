@@ -28,17 +28,59 @@ const Footer = memo(() => {
         { id: 'contato', label: 'Contato' },
     ], []);
 
-    // Memoized social links
+    // Memoized social links with deep link support
     const socialLinks = useMemo(() => [
-        { icon: FaInstagram, href: 'https://www.instagram.com/artecomkevin/', label: 'Instagram' },
-        { icon: FaYoutube, href: 'https://www.youtube.com/@artecomkevin', label: 'YouTube' },
-        { icon: FaTiktok, href: 'https://www.tiktok.com/@artecomkevin', label: 'TikTok' },
+        {
+            icon: FaInstagram,
+            appUrl: 'instagram://user?username=artecomkevin',
+            webUrl: 'https://www.instagram.com/artecomkevin/',
+            label: 'Instagram'
+        },
+        {
+            icon: FaYoutube,
+            appUrl: 'youtube://www.youtube.com/@artecomkevin',
+            webUrl: 'https://www.youtube.com/@artecomkevin',
+            label: 'YouTube'
+        },
+        {
+            icon: FaTiktok,
+            appUrl: 'snssdk1233://user/profile/artecomkevin',
+            webUrl: 'https://www.tiktok.com/@artecomkevin',
+            label: 'TikTok'
+        },
     ], []);
 
-    // Handle social link click with analytics
-    const handleSocialClick = useCallback((label) => {
-        trackSocialClick(label);
+    // Check if user is on mobile device (more robust detection)
+    const isMobile = useCallback(() => {
+        const hasTouch = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+        const isMobileUA = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+        const isSmallScreen = window.innerWidth <= 768;
+        // Only consider mobile if it has mobile UA AND (touch OR small screen)
+        return isMobileUA && (hasTouch || isSmallScreen);
     }, []);
+
+    // Handle social link click with deep linking and analytics
+    const handleSocialClick = useCallback((e, social) => {
+        e.preventDefault();
+        trackSocialClick(social.label);
+
+        // Only try deep linking on mobile devices
+        if (isMobile()) {
+            // Try to open the app first
+            const startTime = Date.now();
+            window.location.href = social.appUrl;
+
+            // If app doesn't open within 500ms, fallback to web URL
+            setTimeout(() => {
+                if (Date.now() - startTime < 1500) {
+                    window.open(social.webUrl, '_blank', 'noopener,noreferrer');
+                }
+            }, 500);
+        } else {
+            // On desktop, open web URL directly
+            window.open(social.webUrl, '_blank', 'noopener,noreferrer');
+        }
+    }, [isMobile]);
 
     return (
         <motion.footer
@@ -81,12 +123,10 @@ const Footer = memo(() => {
                         {socialLinks.map((social) => (
                             <a
                                 key={social.label}
-                                href={social.href}
+                                href={social.webUrl}
                                 className="footer-social-link"
-                                target="_blank"
-                                rel="noopener noreferrer"
                                 aria-label={social.label}
-                                onClick={() => handleSocialClick(social.label)}
+                                onClick={(e) => handleSocialClick(e, social)}
                             >
                                 <social.icon />
                             </a>
