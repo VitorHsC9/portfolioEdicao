@@ -44,7 +44,7 @@ const Footer = memo(() => {
         },
         {
             icon: FaTiktok,
-            appUrl: 'snssdk1233://user/profile/artecomkevin',
+            appUrl: 'https://www.tiktok.com/@artecomkevin',
             webUrl: 'https://www.tiktok.com/@artecomkevin',
             label: 'TikTok'
         },
