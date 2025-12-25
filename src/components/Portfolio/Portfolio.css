@@ -245,3 +245,40 @@
         inset: 6px;
     }
 }
+
+/* === LIGHT MODE === */
+[data-theme="light"] .portfolio {
+    background: var(--color-midnight);
+}
+
+[data-theme="light"] .portfolio-title {
+    color: #1a202c;
+}
+
+[data-theme="light"] .portfolio-subtitle {
+    color: #4a5568;
+}
+
+[data-theme="light"] .portfolio-card-overlay {
+    background: linear-gradient(180deg,
+            transparent 30%,
+            rgba(26, 32, 44, 0.90) 100%);
+}
+
+[data-theme="light"] .portfolio-card:hover .portfolio-card-overlay {
+    background: linear-gradient(180deg,
+            rgba(26, 32, 44, 0.1) 0%,
+            rgba(26, 32, 44, 0.95) 100%);
+}
+
+[data-theme="light"] .portfolio-card-title {
+    color: #f8fafc;
+}
+
+[data-theme="light"] .portfolio-card-description {
+    color: #e2e8f0;
+}
+
+[data-theme="light"] .portfolio-card-category {
+    color: #90cdf4;
+}

@@ -45,15 +45,7 @@
 }
 
 .manifesto-title::before {
-    content: '"';
-    position: absolute;
-    top: -30px;
-    left: -20px;
-    font-size: 5rem;
-    color: var(--color-steel);
-    font-family: Georgia, serif;
-    line-height: 1;
-    opacity: 0.4;
+    display: none;
 }
 
 .manifesto-text {
@@ -136,4 +128,32 @@
     .manifesto::after {
         display: none;
     }
+}
+
+/* === LIGHT MODE === */
+[data-theme="light"] .manifesto {
+    background:
+        linear-gradient(to bottom,
+            rgba(248, 250, 252, 0.55) 0%,
+            rgba(248, 250, 252, 0.45) 50%,
+            rgba(248, 250, 252, 0.55) 100%),
+        url('https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/Sandro_Botticelli_-_La_nascita_di_Venere_-_Google_Art_Project_-_edited.jpg/1280px-Sandro_Botticelli_-_La_nascita_di_Venere_-_Google_Art_Project_-_edited.jpg') center/cover no-repeat;
+}
+
+[data-theme="light"] .manifesto-content {
+    background: rgba(248, 250, 252, 0.95);
+    border: 1px solid rgba(74, 93, 110, 0.15);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+[data-theme="light"] .manifesto-title {
+    color: #1a202c;
+}
+
+[data-theme="light"] .manifesto-text {
+    color: #4a5568;
+}
+
+[data-theme="light"] .manifesto-title::before {
+    display: none;
 }

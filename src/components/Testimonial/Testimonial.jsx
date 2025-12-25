@@ -41,7 +41,7 @@ const Testimonial = () => {
                     </motion.span>
 
                     <motion.blockquote className="testimonial-quote" variants={itemVariants}>
-                        A beleza salvará o mundo.
+                        "A beleza salvará o mundo."
                     </motion.blockquote>
 
                     <motion.div className="testimonial-ornament" variants={itemVariants}>

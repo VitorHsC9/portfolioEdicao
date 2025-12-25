@@ -181,3 +181,45 @@
         max-width: 100%;
     }
 }
+
+/* === LIGHT MODE === */
+[data-theme="light"] .process {
+    background:
+        linear-gradient(to bottom,
+            rgba(248, 250, 252, 0.55) 0%,
+            rgba(248, 250, 252, 0.48) 50%,
+            rgba(248, 250, 252, 0.55) 100%),
+        url('https://upload.wikimedia.org/wikipedia/commons/thumb/8/8c/David_-_The_Death_of_Socrates.jpg/1280px-David_-_The_Death_of_Socrates.jpg') center/cover no-repeat;
+}
+
+[data-theme="light"] .process-title {
+    color: #1a202c;
+}
+
+[data-theme="light"] .process-subtitle {
+    color: #4a5568;
+}
+
+[data-theme="light"] .process-item-number {
+    background: #f8fafc;
+    color: #2d3748;
+    border: 1px solid #cbd5e0;
+}
+
+[data-theme="light"] .process-item:hover .process-item-number {
+    background: #2d3748;
+    color: #f8fafc;
+}
+
+[data-theme="light"] .process-item-content {
+    background: rgba(248, 250, 252, 0.95);
+    border: 1px solid rgba(74, 93, 110, 0.15);
+}
+
+[data-theme="light"] .process-item-title {
+    color: #1a202c;
+}
+
+[data-theme="light"] .process-item-description {
+    color: #4a5568;
+}

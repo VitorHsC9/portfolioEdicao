@@ -125,3 +125,8 @@
         gap: var(--space-md);
     }
 }
+
+/* === LIGHT MODE === */
+[data-theme="light"] .footer {
+    background: var(--color-navy);
+}

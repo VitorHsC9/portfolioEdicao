@@ -150,6 +150,7 @@
         opacity: 0;
         transform: translateY(-5px);
     }
+
     to {
         opacity: 1;
         transform: translateY(0);
@@ -344,4 +345,78 @@
     .cta-ornament {
         display: none;
     }
+}
+
+/* === LIGHT MODE === */
+[data-theme="light"] .cta {
+    background:
+        linear-gradient(to bottom,
+            rgba(248, 250, 252, 0.55) 0%,
+            rgba(248, 250, 252, 0.45) 50%,
+            rgba(248, 250, 252, 0.55) 100%),
+        url('https://upload.wikimedia.org/wikipedia/commons/thumb/e/ea/Van_Gogh_-_Starry_Night_-_Google_Art_Project.jpg/1280px-Van_Gogh_-_Starry_Night_-_Google_Art_Project.jpg') center/cover no-repeat;
+}
+
+[data-theme="light"] .cta-content {
+    background: rgba(248, 250, 252, 0.95);
+    border: 1px solid rgba(74, 93, 110, 0.15);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+[data-theme="light"] .cta-title {
+    color: #1a202c;
+}
+
+[data-theme="light"] .cta-description {
+    color: #4a5568;
+}
+
+[data-theme="light"] .cta-form-group label {
+    color: #2d3748;
+}
+
+[data-theme="light"] .cta-form-group input,
+[data-theme="light"] .cta-form-group textarea,
+[data-theme="light"] .cta-form-group select {
+    background: #ffffff;
+    border: 1px solid #cbd5e0;
+    color: #1a202c;
+}
+
+[data-theme="light"] .cta-form-group input::placeholder,
+[data-theme="light"] .cta-form-group textarea::placeholder {
+    color: #a0aec0;
+}
+
+[data-theme="light"] .cta-form-group input:focus,
+[data-theme="light"] .cta-form-group textarea:focus,
+[data-theme="light"] .cta-form-group select:focus {
+    background: #ffffff;
+    border-color: #2b6cb0;
+}
+
+[data-theme="light"] .cta-form-group select option {
+    background: #ffffff;
+    color: #1a202c;
+}
+
+[data-theme="light"] .cta-button {
+    border-color: #2d3748;
+    color: #2d3748;
+}
+
+[data-theme="light"] .cta-button::before {
+    background: #2d3748;
+}
+
+[data-theme="light"] .cta-button:hover:not(:disabled) {
+    color: #f8fafc;
+}
+
+[data-theme="light"] .cta-message h3 {
+    color: #1a202c;
+}
+
+[data-theme="light"] .cta-message p {
+    color: #4a5568;
 }

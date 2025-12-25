@@ -71,7 +71,7 @@ const Manifesto = memo(() => {
 
                     <motion.div className="manifesto-signature" variants={itemVariants}>
                         <span className="manifesto-signature-line"></span>
-                        <span className="manifesto-signature-name">O Artista</span>
+                        <span className="manifesto-signature-name">Kevin Álex</span>
                         <span className="manifesto-signature-role">Editor & Diretor de Arte Visual</span>
                     </motion.div>
                 </motion.div>

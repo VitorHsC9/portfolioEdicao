@@ -182,3 +182,36 @@
         bottom: var(--space-md);
     }
 }
+
+/* === LIGHT MODE === */
+[data-theme="light"] .hero {
+    background:
+        linear-gradient(to bottom,
+            rgba(248, 250, 252, 0.45) 0%,
+            rgba(248, 250, 252, 0.35) 30%,
+            rgba(248, 250, 252, 0.40) 70%,
+            rgba(248, 250, 252, 0.55) 100%),
+        url('https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Mona_Lisa%2C_by_Leonardo_da_Vinci%2C_from_C2RMF_retouched.jpg/800px-Mona_Lisa%2C_by_Leonardo_da_Vinci%2C_from_C2RMF_retouched.jpg') center/cover no-repeat;
+}
+
+[data-theme="light"] .hero-content {
+    background: rgba(248, 250, 252, 0.92);
+    border: 1px solid rgba(74, 93, 110, 0.15);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+[data-theme="light"] .hero-title {
+    color: #1a202c;
+}
+
+[data-theme="light"] .hero-title-highlight {
+    color: #2b6cb0;
+}
+
+[data-theme="light"] .hero-subtitle {
+    color: #4a5568;
+}
+
+[data-theme="light"] .hero-scroll {
+    color: #4a5568;
+}
