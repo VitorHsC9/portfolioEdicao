@@ -11,7 +11,7 @@
             rgba(10, 15, 24, 0.65) 30%,
             rgba(10, 15, 24, 0.70) 70%,
             rgba(10, 15, 24, 0.85) 100%),
-        url('https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Mona_Lisa%2C_by_Leonardo_da_Vinci%2C_from_C2RMF_retouched.jpg/800px-Mona_Lisa%2C_by_Leonardo_da_Vinci%2C_from_C2RMF_retouched.jpg') center 20%/cover no-repeat;
+        url('https://upload.wikimedia.org/wikipedia/commons/thumb/4/48/The_Calling_of_Saint_Matthew-Caravaggo_%281599-1600%29.jpg/1280px-The_Calling_of_Saint_Matthew-Caravaggo_%281599-1600%29.jpg') center/cover no-repeat;
     background-attachment: fixed;
 }
 
