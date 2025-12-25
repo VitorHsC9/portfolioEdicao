@@ -1,4 +1,4 @@
-import { lazy, Suspense } from 'react';
+import { lazy, Suspense, useEffect } from 'react';
 import Header from './components/Header/Header';
 import Hero from './components/Hero/Hero';
 import Footer from './components/Footer/Footer';
@@ -18,6 +18,14 @@ const CallToAction = lazy(() => import('./components/CallToAction/CallToAction')
  * Other sections are lazy loaded as user scrolls
  */
 function App() {
+  // Clear hash and scroll to top on page load/refresh
+  useEffect(() => {
+    if (window.location.hash) {
+      window.history.replaceState(null, '', window.location.pathname);
+      window.scrollTo(0, 0);
+    }
+  }, []);
+
   return (
     <>
       <Header />
