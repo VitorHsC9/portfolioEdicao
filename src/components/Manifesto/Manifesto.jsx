@@ -1,13 +1,17 @@
-import { motion } from 'framer-motion';
-import { useInView } from 'framer-motion';
-import { useRef } from 'react';
+import { memo, useMemo, useRef } from 'react';
+import { motion, useInView } from 'framer-motion';
 import './Manifesto.css';
 
-const Manifesto = () => {
+/**
+ * Manifesto section with artistic philosophy
+ * Memoized to prevent unnecessary re-renders
+ */
+const Manifesto = memo(() => {
     const ref = useRef(null);
     const isInView = useInView(ref, { once: true, margin: '-100px' });
 
-    const containerVariants = {
+    // Memoized animation variants
+    const containerVariants = useMemo(() => ({
         hidden: { opacity: 0 },
         visible: {
             opacity: 1,
@@ -16,16 +20,16 @@ const Manifesto = () => {
                 delayChildren: 0.3,
             },
         },
-    };
+    }), []);
 
-    const itemVariants = {
+    const itemVariants = useMemo(() => ({
         hidden: { opacity: 0, y: 30 },
         visible: {
             opacity: 1,
             y: 0,
             transition: { duration: 0.8, ease: 'easeOut' },
         },
-    };
+    }), []);
 
     return (
         <section className="manifesto section" id="manifesto" ref={ref}>
@@ -74,6 +78,9 @@ const Manifesto = () => {
             </div>
         </section>
     );
-};
+});
+
+Manifesto.displayName = 'Manifesto';
 
 export default Manifesto;
+

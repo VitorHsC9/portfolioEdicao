@@ -1,13 +1,22 @@
+import { lazy, Suspense } from 'react';
 import Header from './components/Header/Header';
 import Hero from './components/Hero/Hero';
-import Manifesto from './components/Manifesto/Manifesto';
-import Portfolio from './components/Portfolio/Portfolio';
-import Process from './components/Process/Process';
-import Testimonial from './components/Testimonial/Testimonial';
-import CallToAction from './components/CallToAction/CallToAction';
 import Footer from './components/Footer/Footer';
+import LoadingSpinner from './components/LoadingSpinner/LoadingSpinner';
 import './styles/index.css';
 
+// Lazy load heavy components for better initial load performance
+const Manifesto = lazy(() => import('./components/Manifesto/Manifesto'));
+const Portfolio = lazy(() => import('./components/Portfolio/Portfolio'));
+const Process = lazy(() => import('./components/Process/Process'));
+const Testimonial = lazy(() => import('./components/Testimonial/Testimonial'));
+const CallToAction = lazy(() => import('./components/CallToAction/CallToAction'));
+
+/**
+ * Main App component
+ * Header, Hero, and Footer load immediately for fast first paint
+ * Other sections are lazy loaded as user scrolls
+ */
 function App() {
   return (
     <>
@@ -17,23 +26,33 @@ function App() {
 
         <div className="section-divider" />
 
-        <Manifesto />
+        <Suspense fallback={<LoadingSpinner />}>
+          <Manifesto />
+        </Suspense>
 
         <div className="section-divider" />
 
-        <Portfolio />
+        <Suspense fallback={<LoadingSpinner />}>
+          <Portfolio />
+        </Suspense>
 
         <div className="section-divider" />
 
-        <Process />
+        <Suspense fallback={<LoadingSpinner />}>
+          <Process />
+        </Suspense>
 
         <div className="section-divider" />
 
-        <Testimonial />
+        <Suspense fallback={<LoadingSpinner />}>
+          <Testimonial />
+        </Suspense>
 
         <div className="section-divider" />
 
-        <CallToAction />
+        <Suspense fallback={<LoadingSpinner />}>
+          <CallToAction />
+        </Suspense>
       </main>
       <Footer />
     </>
@@ -41,3 +60,4 @@ function App() {
 }
 
 export default App;
+

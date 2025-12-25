@@ -69,6 +69,7 @@
     display: flex;
     flex-direction: column;
     gap: var(--space-xs);
+    position: relative;
 }
 
 .cta-form-group label {
@@ -77,10 +78,16 @@
     letter-spacing: 0.15em;
     text-transform: uppercase;
     color: var(--color-silver);
+    transition: color var(--transition-fast);
+}
+
+.cta-form-group.has-error label {
+    color: #c47c7c;
 }
 
 .cta-form-group input,
-.cta-form-group textarea {
+.cta-form-group textarea,
+.cta-form-group select {
     font-family: var(--font-body);
     font-size: 1rem;
     padding: var(--space-sm);
@@ -91,6 +98,22 @@
     resize: vertical;
 }
 
+/* Select específico */
+.cta-form-group select {
+    cursor: pointer;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23c0c7ce' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 1rem center;
+    padding-right: 2.5rem;
+}
+
+.cta-form-group select option {
+    background: var(--color-midnight);
+    color: var(--color-text-light);
+    padding: var(--space-sm);
+}
+
 .cta-form-group input::placeholder,
 .cta-form-group textarea::placeholder {
     color: var(--color-text-muted);
@@ -98,10 +121,47 @@
 }
 
 .cta-form-group input:focus,
-.cta-form-group textarea:focus {
+.cta-form-group textarea:focus,
+.cta-form-group select:focus {
     outline: none;
     border-color: var(--color-accent-blue);
     background: rgba(255, 255, 255, 0.05);
+}
+
+/* Estados de erro */
+.cta-form-group.has-error input,
+.cta-form-group.has-error textarea,
+.cta-form-group.has-error select {
+    border-color: #c47c7c;
+    background: rgba(196, 124, 124, 0.05);
+}
+
+.cta-form-error {
+    font-family: var(--font-body);
+    font-size: 0.8rem;
+    color: #c47c7c;
+    font-style: italic;
+    margin-top: 0.25rem;
+    animation: fadeIn 0.3s ease-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-5px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Inputs disabled */
+.cta-form-group input:disabled,
+.cta-form-group textarea:disabled,
+.cta-form-group select:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
 }
 
 .cta-button {
@@ -160,10 +220,52 @@
     transform: translateX(5px);
 }
 
-/* Mensagem de sucesso */
-.cta-success {
+/* Loading spinner */
+.cta-button-spinner {
+    width: 16px;
+    height: 16px;
+    border: 2px solid transparent;
+    border-top-color: currentColor;
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Botão secundário */
+.cta-button-secondary {
+    background: transparent;
+    border-color: var(--color-silver-dark);
+    color: var(--color-silver-dark);
+    margin-top: var(--space-md);
+}
+
+.cta-button-secondary:hover:not(:disabled) {
+    border-color: var(--color-silver);
+    color: var(--color-midnight);
+}
+
+/* Mensagem de sucesso/erro */
+.cta-message {
     text-align: center;
     padding: var(--space-lg);
+}
+
+.cta-message h3 {
+    font-family: var(--font-title);
+    font-size: 1.5rem;
+    color: var(--color-ice);
+    margin-bottom: var(--space-sm);
+}
+
+.cta-message p {
+    color: var(--color-silver);
+    font-style: italic;
+    line-height: 1.8;
 }
 
 .cta-success-icon {
@@ -179,9 +281,18 @@
     margin-bottom: var(--space-md);
 }
 
-.cta-success p {
-    color: var(--color-silver);
-    font-style: italic;
+.cta-error-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: rgba(196, 124, 124, 0.2);
+    color: #c47c7c;
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: var(--space-md);
 }
 
 /* Ornamentos */

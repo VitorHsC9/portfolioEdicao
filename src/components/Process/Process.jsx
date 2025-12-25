@@ -1,13 +1,17 @@
-import { motion } from 'framer-motion';
-import { useInView } from 'framer-motion';
-import { useRef } from 'react';
+import { memo, useMemo, useRef } from 'react';
+import { motion, useInView } from 'framer-motion';
 import './Process.css';
 
-const Process = () => {
+/**
+ * Process section showing creative methodology
+ * Memoized to prevent unnecessary re-renders
+ */
+const Process = memo(() => {
     const ref = useRef(null);
     const isInView = useInView(ref, { once: true, margin: '-100px' });
 
-    const steps = [
+    // Memoized static steps data
+    const steps = useMemo(() => [
         {
             number: 'I',
             title: 'Imersão & Pesquisa',
@@ -32,9 +36,10 @@ const Process = () => {
             description:
                 'Polimento obsessivo de cada detalhe, onde milissegundos fazem diferença e a perfeição é o único padrão aceitável.',
         },
-    ];
+    ], []);
 
-    const containerVariants = {
+    // Memoized animation variants
+    const containerVariants = useMemo(() => ({
         hidden: { opacity: 0 },
         visible: {
             opacity: 1,
@@ -43,25 +48,25 @@ const Process = () => {
                 delayChildren: 0.3,
             },
         },
-    };
+    }), []);
 
-    const itemVariants = {
+    const itemVariants = useMemo(() => ({
         hidden: { opacity: 0, x: -30 },
         visible: {
             opacity: 1,
             x: 0,
             transition: { duration: 0.8, ease: 'easeOut' },
         },
-    };
+    }), []);
 
-    const headerVariants = {
+    const headerVariants = useMemo(() => ({
         hidden: { opacity: 0, y: 30 },
         visible: {
             opacity: 1,
             y: 0,
             transition: { duration: 0.8 },
         },
-    };
+    }), []);
 
     return (
         <section className="process section" id="processo" ref={ref}>
@@ -102,6 +107,9 @@ const Process = () => {
             </div>
         </section>
     );
-};
+});
+
+Process.displayName = 'Process';
 
 export default Process;
+

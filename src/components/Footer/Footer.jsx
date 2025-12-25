@@ -1,29 +1,44 @@
+import { memo, useMemo, useCallback } from 'react';
 import { motion } from 'framer-motion';
 import { FaInstagram, FaYoutube, FaTiktok } from 'react-icons/fa';
+import { trackSocialClick, trackNavigation } from '../../utils/analytics';
 import './Footer.css';
 
-const Footer = () => {
+/**
+ * Footer component with navigation and social links
+ * Memoized to prevent unnecessary re-renders
+ */
+const Footer = memo(() => {
     const currentYear = new Date().getFullYear();
 
-    const scrollToSection = (id) => {
+    // Memoized scroll handler with analytics tracking
+    const scrollToSection = useCallback((id) => {
+        trackNavigation(id);
         const element = document.getElementById(id);
         if (element) {
             element.scrollIntoView({ behavior: 'smooth' });
         }
-    };
+    }, []);
 
-    const navLinks = [
+    // Memoized navigation links
+    const navLinks = useMemo(() => [
         { id: 'manifesto', label: 'Manifesto' },
         { id: 'obras', label: 'Obras' },
         { id: 'processo', label: 'Processo' },
         { id: 'contato', label: 'Contato' },
-    ];
+    ], []);
 
-    const socialLinks = [
+    // Memoized social links
+    const socialLinks = useMemo(() => [
         { icon: FaInstagram, href: 'https://www.instagram.com/artecomkevin/', label: 'Instagram' },
         { icon: FaYoutube, href: 'https://www.youtube.com/@artecomkevin', label: 'YouTube' },
         { icon: FaTiktok, href: 'https://www.tiktok.com/@artecomkevin', label: 'TikTok' },
-    ];
+    ], []);
+
+    // Handle social link click with analytics
+    const handleSocialClick = useCallback((label) => {
+        trackSocialClick(label);
+    }, []);
 
     return (
         <motion.footer
@@ -71,6 +86,7 @@ const Footer = () => {
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 aria-label={social.label}
+                                onClick={() => handleSocialClick(social.label)}
                             >
                                 <social.icon />
                             </a>
@@ -91,6 +107,9 @@ const Footer = () => {
             </div>
         </motion.footer>
     );
-};
+});
+
+Footer.displayName = 'Footer';
 
 export default Footer;
+

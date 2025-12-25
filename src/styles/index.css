@@ -47,6 +47,35 @@
     inset 0 1px 0 rgba(255, 255, 255, 0.1);
 }
 
+/* === LIGHT MODE === */
+[data-theme="light"] {
+  /* Inverted color palette for light mode */
+  --color-deep-blue: #e8edf2;
+  --color-navy: #f0f4f8;
+  --color-midnight: #f8fafc;
+  --color-slate: #d8dde2;
+  --color-steel: #8a9299;
+  --color-silver: #4a5d6e;
+  --color-silver-light: #2c3e50;
+  --color-silver-dark: #5d6a75;
+  --color-ice: #1a2332;
+  --color-white: #0a0f18;
+  --color-pure-white: #0d1520;
+  --color-accent-blue: #3d6a88;
+  --color-accent-teal: #2a6b6b;
+  --color-text-light: #1a2332;
+  --color-text-dark: #f0f4f8;
+  --color-text-muted: #5d6a75;
+
+  /* Adjusted shadows for light mode */
+  --shadow-soft: 0 4px 20px rgba(0, 0, 0, 0.08);
+  --shadow-deep: 0 8px 40px rgba(0, 0, 0, 0.12);
+  --shadow-frame:
+    0 2px 8px rgba(0, 0, 0, 0.1),
+    0 8px 32px rgba(0, 0, 0, 0.08),
+    inset 0 1px 0 rgba(255, 255, 255, 0.5);
+}
+
 /* === RESET === */
 *,
 *::before,

@@ -1,13 +1,18 @@
-import { motion } from 'framer-motion';
-import { useInView } from 'framer-motion';
-import { useRef } from 'react';
+import { memo, useMemo, useCallback, useRef } from 'react';
+import { motion, useInView } from 'framer-motion';
+import { trackPortfolioClick } from '../../utils/analytics';
 import './Portfolio.css';
 
-const Portfolio = () => {
+/**
+ * Portfolio section displaying works in a grid
+ * Memoized to prevent unnecessary re-renders
+ */
+const Portfolio = memo(() => {
     const ref = useRef(null);
     const isInView = useInView(ref, { once: true, margin: '-50px' });
 
-    const works = [
+    // Memoized static works data
+    const works = useMemo(() => [
         {
             id: 1,
             title: 'Obra I',
@@ -56,9 +61,10 @@ const Portfolio = () => {
             image: '/assets/portfolio/6.jpg',
             videoUrl: 'https://www.instagram.com/reel/DPWNtHBgILy/',
         },
-    ];
+    ], []);
 
-    const containerVariants = {
+    // Memoized animation variants
+    const containerVariants = useMemo(() => ({
         hidden: { opacity: 0 },
         visible: {
             opacity: 1,
@@ -67,29 +73,31 @@ const Portfolio = () => {
                 delayChildren: 0.2,
             },
         },
-    };
+    }), []);
 
-    const cardVariants = {
+    const cardVariants = useMemo(() => ({
         hidden: { opacity: 0, y: 50 },
         visible: {
             opacity: 1,
             y: 0,
             transition: { duration: 0.8, ease: 'easeOut' },
         },
-    };
+    }), []);
 
-    const headerVariants = {
+    const headerVariants = useMemo(() => ({
         hidden: { opacity: 0, y: 30 },
         visible: {
             opacity: 1,
             y: 0,
             transition: { duration: 0.8 },
         },
-    };
+    }), []);
 
-    const handleWorkClick = (videoUrl) => {
+    // Memoized click handler with analytics tracking
+    const handleWorkClick = useCallback((videoUrl, title) => {
+        trackPortfolioClick(title);
         window.open(videoUrl, '_blank', 'noopener,noreferrer');
-    };
+    }, []);
 
     return (
         <section className="portfolio section" id="obras" ref={ref}>
@@ -119,7 +127,7 @@ const Portfolio = () => {
                             className="portfolio-card"
                             variants={cardVariants}
                             whileHover={{ y: -5 }}
-                            onClick={() => handleWorkClick(work.videoUrl)}
+                            onClick={() => handleWorkClick(work.videoUrl, work.title)}
                         >
                             <img
                                 src={work.image}
@@ -142,6 +150,9 @@ const Portfolio = () => {
             </div>
         </section>
     );
-};
+});
+
+Portfolio.displayName = 'Portfolio';
 
 export default Portfolio;
+
