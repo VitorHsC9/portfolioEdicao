@@ -138,6 +138,7 @@
             rgba(248, 250, 252, 0.45) 50%,
             rgba(248, 250, 252, 0.55) 100%),
         url('https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/Sandro_Botticelli_-_La_nascita_di_Venere_-_Google_Art_Project_-_edited.jpg/1280px-Sandro_Botticelli_-_La_nascita_di_Venere_-_Google_Art_Project_-_edited.jpg') center/cover no-repeat;
+    background-attachment: fixed;
 }
 
 [data-theme="light"] .manifesto-content {

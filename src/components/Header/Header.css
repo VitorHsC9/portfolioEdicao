@@ -4,14 +4,14 @@
     left: 0;
     right: 0;
     z-index: 1000;
-    padding: var(--space-md) 0;
+    padding: var(--space-sm) 0;
     transition: all var(--transition-medium);
 }
 
 .header.scrolled {
     background: rgba(10, 15, 24, 0.95);
     backdrop-filter: blur(12px);
-    padding: var(--space-sm) 0;
+    padding: var(--space-xs) 0;
     border-bottom: 1px solid rgba(192, 199, 206, 0.1);
     box-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
 }

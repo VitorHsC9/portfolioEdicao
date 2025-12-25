@@ -192,6 +192,7 @@
             rgba(248, 250, 252, 0.40) 70%,
             rgba(248, 250, 252, 0.55) 100%),
         url('https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Mona_Lisa%2C_by_Leonardo_da_Vinci%2C_from_C2RMF_retouched.jpg/800px-Mona_Lisa%2C_by_Leonardo_da_Vinci%2C_from_C2RMF_retouched.jpg') center/cover no-repeat;
+    background-attachment: fixed;
 }
 
 [data-theme="light"] .hero-content {

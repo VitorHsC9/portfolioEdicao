@@ -190,6 +190,7 @@
             rgba(248, 250, 252, 0.48) 50%,
             rgba(248, 250, 252, 0.55) 100%),
         url('https://upload.wikimedia.org/wikipedia/commons/thumb/8/8c/David_-_The_Death_of_Socrates.jpg/1280px-David_-_The_Death_of_Socrates.jpg') center/cover no-repeat;
+    background-attachment: fixed;
 }
 
 [data-theme="light"] .process-title {

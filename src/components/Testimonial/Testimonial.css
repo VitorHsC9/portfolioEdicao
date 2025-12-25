@@ -145,6 +145,7 @@
             rgba(248, 250, 252, 0.45) 50%,
             rgba(248, 250, 252, 0.55) 100%),
         url('https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/%22The_School_of_Athens%22_by_Raffaello_Sanzio_da_Urbino.jpg/1280px-%22The_School_of_Athens%22_by_Raffaello_Sanzio_da_Urbino.jpg') center/cover no-repeat;
+    background-attachment: fixed;
 }
 
 [data-theme="light"] .testimonial-content {
