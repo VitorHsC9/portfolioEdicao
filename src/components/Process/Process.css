@@ -157,21 +157,56 @@
 
 /* Responsivo */
 @media (max-width: 768px) {
+    .process {
+        padding: var(--space-lg) 0;
+        background:
+            linear-gradient(to bottom,
+                rgba(10, 15, 24, 0.20) 0%,
+                rgba(10, 15, 24, 0.10) 50%,
+                rgba(10, 15, 24, 0.20) 100%),
+            url('https://upload.wikimedia.org/wikipedia/commons/thumb/b/b9/Caspar_David_Friedrich_-_Wanderer_above_the_sea_of_fog.jpg/800px-Caspar_David_Friedrich_-_Wanderer_above_the_sea_of_fog.jpg') center center/auto 100% no-repeat;
+        background-attachment: scroll;
+        background-color: #0a0f18;
+    }
+
+    .process-header {
+        margin-bottom: var(--space-lg);
+    }
+
     .process-timeline::before {
-        left: 30px;
+        left: 25px;
+        opacity: 0.3;
     }
 
     .process-item,
     .process-item:nth-child(odd),
     .process-item:nth-child(even) {
         flex-direction: row;
-        gap: var(--space-md);
+        gap: var(--space-sm);
+        margin-bottom: var(--space-md);
     }
 
     .process-item-number {
-        width: 50px;
-        height: 50px;
-        font-size: 1.1rem;
+        width: 40px;
+        height: 40px;
+        font-size: 0.9rem;
+        background: rgba(10, 15, 24, 0.7);
+    }
+
+    .process-item-content {
+        padding: var(--space-sm);
+        background: rgba(10, 15, 24, 0.55);
+        backdrop-filter: blur(12px);
+    }
+
+    .process-item-title {
+        font-size: 0.95rem;
+        margin-bottom: var(--space-xs);
+    }
+
+    .process-item-description {
+        font-size: 0.85rem;
+        line-height: 1.6;
     }
 
     .process-item-content,

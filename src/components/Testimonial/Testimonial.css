@@ -113,23 +113,32 @@
 }
 
 @media (max-width: 768px) {
+    .testimonial {
+        padding: var(--space-lg) 0;
+        background:
+            linear-gradient(to bottom,
+                rgba(10, 15, 24, 0.20) 0%,
+                rgba(10, 15, 24, 0.10) 50%,
+                rgba(10, 15, 24, 0.20) 100%),
+            url('https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Gustave_Moreau_-_Jupiter_and_Semele.jpg/800px-Gustave_Moreau_-_Jupiter_and_Semele.jpg') center center/auto 100% no-repeat;
+        background-attachment: scroll;
+        background-color: #0a0f18;
+    }
+
     .testimonial-content {
-        padding: var(--space-lg) var(--space-md);
+        padding: var(--space-md);
         margin: 0 var(--space-sm);
+        background: rgba(10, 15, 24, 0.55);
+        backdrop-filter: blur(12px);
+    }
+
+    .testimonial-quote {
+        font-size: clamp(1.1rem, 4vw, 1.4rem);
+        margin-bottom: var(--space-md);
     }
 
     .testimonial-quote-mark {
-        font-size: 6rem;
-    }
-
-    .testimonial-quote-mark.open {
-        top: -10px;
-        left: 10px;
-    }
-
-    .testimonial-quote-mark.close {
-        bottom: -50px;
-        right: 10px;
+        display: none;
     }
 
     .testimonial-side-ornament {

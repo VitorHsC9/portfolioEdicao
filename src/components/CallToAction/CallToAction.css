@@ -328,18 +328,53 @@
 }
 
 @media (max-width: 768px) {
+    .cta {
+        padding: var(--space-lg) 0;
+        background:
+            linear-gradient(to bottom,
+                rgba(10, 15, 24, 0.20) 0%,
+                rgba(10, 15, 24, 0.10) 50%,
+                rgba(10, 15, 24, 0.20) 100%),
+            url('https://upload.wikimedia.org/wikipedia/commons/thumb/5/5d/Eug%C3%A8ne_Delacroix_-_Le_28_Juillet._La_Libert%C3%A9_guidant_le_peuple.jpg/1280px-Eug%C3%A8ne_Delacroix_-_Le_28_Juillet._La_Libert%C3%A9_guidant_le_peuple.jpg') center center/auto 100% no-repeat;
+        background-attachment: scroll;
+        background-color: #0a0f18;
+    }
+
     .cta-content {
-        padding: var(--space-lg) var(--space-md);
+        padding: var(--space-md);
         margin: 0 var(--space-sm);
+        background: rgba(10, 15, 24, 0.55);
+        backdrop-filter: blur(12px);
+    }
+
+    .cta-title {
+        font-size: clamp(1.1rem, 4vw, 1.5rem);
+        margin-bottom: var(--space-sm);
+    }
+
+    .cta-description {
+        font-size: 0.9rem;
+        margin-bottom: var(--space-md);
+    }
+
+    .cta-form {
+        gap: var(--space-sm);
     }
 
     .cta-form-row {
         grid-template-columns: 1fr;
+        gap: var(--space-sm);
+    }
+
+    .cta-form-group input,
+    .cta-form-group textarea,
+    .cta-form-group select {
+        padding: var(--space-xs) var(--space-sm);
+        font-size: 0.9rem;
     }
 
     .cta::after {
-        left: var(--space-sm);
-        right: var(--space-sm);
+        display: none;
     }
 
     .cta-ornament {

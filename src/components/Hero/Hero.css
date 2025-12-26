@@ -159,27 +159,55 @@
 
 /* Responsividade */
 @media (max-width: 768px) {
+    .hero {
+        min-height: 100svh;
+        background:
+            linear-gradient(to bottom,
+                rgba(10, 15, 24, 0.25) 0%,
+                rgba(10, 15, 24, 0.15) 30%,
+                rgba(10, 15, 24, 0.15) 70%,
+                rgba(10, 15, 24, 0.40) 100%),
+            url('https://upload.wikimedia.org/wikipedia/commons/thumb/4/48/The_Calling_of_Saint_Matthew-Caravaggo_%281599-1600%29.jpg/1280px-The_Calling_of_Saint_Matthew-Caravaggo_%281599-1600%29.jpg') center center/auto 100% no-repeat;
+        background-attachment: scroll;
+        background-color: #0a0f18;
+    }
+
     .hero::after {
-        top: var(--space-sm);
-        left: var(--space-sm);
-        right: var(--space-sm);
-        bottom: var(--space-sm);
+        display: none;
     }
 
     .hero::before {
-        top: calc(var(--space-sm) - 5px);
-        left: calc(var(--space-sm) - 5px);
-        width: 20px;
-        height: 20px;
+        display: none;
     }
 
     .hero-content {
-        padding: var(--space-md);
-        margin: var(--space-md);
+        padding: var(--space-sm) var(--space-md);
+        margin: var(--space-sm);
+        background: rgba(10, 15, 24, 0.6);
+        backdrop-filter: blur(12px);
+        max-width: 85%;
+    }
+
+    .hero-title {
+        font-size: clamp(2rem, 8vw, 3rem);
+        margin-bottom: var(--space-sm);
+    }
+
+    .hero-subtitle {
+        font-size: 0.95rem;
+        margin-bottom: var(--space-md);
+    }
+
+    .hero-ornament {
+        margin-bottom: var(--space-md);
+    }
+
+    .hero-cta {
+        margin-top: var(--space-md);
     }
 
     .hero-scroll {
-        bottom: var(--space-md);
+        bottom: var(--space-sm);
     }
 }
 
