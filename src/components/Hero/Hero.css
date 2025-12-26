@@ -5,6 +5,7 @@
     justify-content: center;
     position: relative;
     overflow: hidden;
+    padding-top: 80px;
     background:
         linear-gradient(to bottom,
             rgba(10, 15, 24, 0.75) 0%,
@@ -154,6 +155,49 @@
     50% {
         opacity: 1;
         transform: scaleY(1.1);
+    }
+}
+
+/* Responsividade para viewports com altura limitada (monitores 17" etc) */
+@media (max-height: 800px) and (min-width: 769px) {
+    .hero {
+        padding-top: 70px;
+        padding-bottom: 60px;
+    }
+
+    .hero-content {
+        padding: var(--space-md);
+    }
+
+    .hero-title {
+        font-size: clamp(2rem, 5vw, 3.5rem);
+        margin-bottom: var(--space-sm);
+    }
+
+    .hero-title-highlight {
+        margin-top: var(--space-xs);
+    }
+
+    .hero-subtitle {
+        font-size: 1.1rem;
+        margin-bottom: var(--space-md);
+        line-height: 1.7;
+    }
+
+    .hero-ornament {
+        margin-bottom: var(--space-md);
+    }
+
+    .hero-cta {
+        margin-top: var(--space-md);
+    }
+
+    .hero-scroll {
+        bottom: var(--space-sm);
+    }
+
+    .hero-scroll-line {
+        height: 40px;
     }
 }
 
